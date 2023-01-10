@@ -1,4 +1,4 @@
-export const option = {
+export const options = {
     client: 'mysql',
     connection: {
         host: 'localhost',
