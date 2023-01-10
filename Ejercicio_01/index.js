@@ -30,7 +30,27 @@ sql.crearTabla()
         return sql.listarArticulos();
     })
     .then(articulos => {
-        // Punto 4
+
         console.log("Articulos listados")
         console.table(articulos)
+        // Punto 4
+        return sql.borrarArticulosPorId(3)
+    })
+    .then(() => {
+        console.log("Articulo con ID 3 borrado con exito")
+        // Punto 5
+        return sql.actualizarArticulosPorId(0, 2)
+    })
+    .then(() => {
+        console.log("Stock actualizado")
+        // Resultado total
+        return sql.listarArticulos();
+    })
+    .then(articulos => {
+        console.log("resultado total");
+        console.table(articulos)
+    })
+    .catch((err) => { console.log(err); throw err})
+    .finally(() => {
+        sql.close()
     })
